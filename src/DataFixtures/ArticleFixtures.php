@@ -59,29 +59,33 @@ EOF
                 ->setImageFilename($this->faker->randomElement(self::$articleImages))
             ;
 
-            $comment1 = new Comment();
-            $comment1->setAuthorName('Peter Selie');
-            $comment1->setContent('I ate a normal rock once. It did NOT taste like bacon!');
-            $comment1->setArticle($article);
-                        // SET INVERSE SIDE OF RELATION
-                        // $article->addComment($comment1);
-            $manager->persist($comment1);
+
+
+            /* MANUALLY ADD COMMENTS */ 
+            /* YOU CAN MAKE FIXTURES FROM COMMAND LINE WITH ./bin/console make:fixture */ 
+            // $comment1 = new Comment();
+            // $comment1->setAuthorName('Peter Selie');
+            // $comment1->setContent('I ate a normal rock once. It did NOT taste like bacon!');
+            // $comment1->setArticle($article);
+            //             // SET INVERSE SIDE OF RELATION
+            //             // $article->addComment($comment1);
+            // $manager->persist($comment1);
             
-            $comment2 = new Comment();
-            $comment2->setAuthorName('Deborah Leemans');
-            $comment2->setContent('Woohoo! I\'m going on an all-asteroid diet!!');
-            $comment2->setArticle($article);
-                        // SET INVERSE SIDE OF RELATION
-                        // $article->addComment($comment2);
-            $manager->persist($comment2);
+            // $comment2 = new Comment();
+            // $comment2->setAuthorName('Deborah Leemans');
+            // $comment2->setContent('Woohoo! I\'m going on an all-asteroid diet!!');
+            // $comment2->setArticle($article);
+            //             // SET INVERSE SIDE OF RELATION
+            //             // $article->addComment($comment2);
+            // $manager->persist($comment2);
             
-            $comment3 = new Comment();
-            $comment3->setAuthorName('Baldimar PapadoPoulos');
-            $comment3->setContent('I like bacon too! Buy some from my site! bakinsomebacon.com');
-            $comment3->setArticle($article);
-                        // SET INVERSE SIDE OF RELATION
-                        // $article->addComment($comment3);
-            $manager->persist($comment3);
+            // $comment3 = new Comment();
+            // $comment3->setAuthorName('Baldimar PapadoPoulos');
+            // $comment3->setContent('I like bacon too! Buy some from my site! bakinsomebacon.com');
+            // $comment3->setArticle($article);
+            //             // SET INVERSE SIDE OF RELATION
+            //             // $article->addComment($comment3);
+            // $manager->persist($comment3);
         });
 
         $manager->flush();
