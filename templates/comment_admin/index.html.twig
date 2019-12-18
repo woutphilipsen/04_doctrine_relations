@@ -14,7 +14,12 @@ Manage Comments
         <form>
             <div class="input-group mb-3">
 
-                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <input type="text" 
+                       name="q" 
+                       class="form-control" 
+                       placeholder="Search..." 
+                       value="{{ app.request.query.get('q') }}"
+                >
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-outline-secondary">
                         <span class="fa fa-search"></span>
@@ -35,22 +40,28 @@ Manage Comments
             </thead>
             <tbody>
                 {% for comment in comments %}
-                <tr>
-                    <td>
-                        <a href="{{ path('article_show', { slug: comment.article.slug }) }}">
-                            {{ comment.article.title }}
-                        </a>
-                    </td>
-                    <td>
-                        {{ comment.getAuthorName() }}
-                    </td>
-                    <td>
-                        {{ comment.content|truncate }}
-                    </td>
-                    <td>
-                        {{ comment.createdAt|ago }}
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            <a href="{{ path('article_show', { slug: comment.article.slug }) }}">
+                                {{ comment.article.title }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ comment.getAuthorName() }}
+                        </td>
+                        <td>
+                            {{ comment.content|truncate }}
+                        </td>
+                        <td>
+                            {{ comment.createdAt|ago }}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No Comments Found
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
