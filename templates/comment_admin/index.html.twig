@@ -32,7 +32,7 @@ Manage Comments
                                     {{ comment.getAuthorName() }}
                                 </td>
                                 <td>
-                                    {{ comment.content }}
+                                    {{ comment.content|truncate }}
                                 </td>
                                 <td>
                                     {{ comment.createdAt|ago }}
